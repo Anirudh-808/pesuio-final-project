@@ -1,6 +1,7 @@
 package auth
 
 import (
+	"github.com/anuragrao04/pesuio-final-project/database"
 	"github.com/anuragrao04/pesuio-final-project/models"
 	"github.com/gin-gonic/gin"
 )
@@ -17,7 +18,9 @@ func Signup(c *gin.Context) {
 	}
 
 	// implement
+	value, _ := database.CreateUser("credentialsDatabase", request.Username, request.Password)
+
 	c.JSON(200, gin.H{
-		"success": true,
+		"message": value,
 	})
 }
