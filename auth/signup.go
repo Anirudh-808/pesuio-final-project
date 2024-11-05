@@ -18,9 +18,10 @@ func Signup(c *gin.Context) {
 	}
 
 	// implement
-	value, _ := database.CreateUser("credentialsDatabase", request.Username, request.Password)
+	value, data := database.CreateUser(request.Username, request.Password)
 
 	c.JSON(200, gin.H{
 		"message": value,
+		"record":  data,
 	})
 }
