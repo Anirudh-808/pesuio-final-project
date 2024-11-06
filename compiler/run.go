@@ -11,7 +11,7 @@ import (
 
 func executePython(code string) (string, error) {
 	// Create the command
-	cmd := exec.Command("python3", "-c", code)
+	cmd := exec.Command("C:\\Users\\anina\\AppData\\Local\\Programs\\Python\\Python313\\python.exe", "-c", code)
 
 	// Capture the output
 	var out bytes.Buffer
