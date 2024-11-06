@@ -32,7 +32,7 @@ func Run(c *gin.Context) {
 	var request models.RunRequest
 	err := c.BindJSON(&request)
 	if err != nil {
-		c.JSON(200, gin.H{
+		c.JSON(400, gin.H{
 			"error": "Invalid JSON format",
 		})
 	}
@@ -41,7 +41,7 @@ func Run(c *gin.Context) {
 	// Execute Python code
 	output, err := executePython(request.Code)
 	if err != nil {
-		c.JSON(400, gin.H{"error": err.Error(), "output": output})
+		c.JSON(200, gin.H{"error": err.Error(), "output": output})
 		return
 	}
 
